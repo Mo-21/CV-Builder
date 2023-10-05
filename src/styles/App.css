@@ -1,0 +1,84 @@
+@font-face {
+  font-family: Montserrat;
+  src: url("../assets/Montserrat-Regular.ttf");
+}
+
+html {
+  font-family: Montserrat;
+  margin: 0;
+  padding: 0;
+  background-color: #374457;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  list-style-type: none;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #374457;
+  color: #f3564a;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  line-height: 60px;
+  border-bottom: solid #f3564a 1rem;
+  border-radius: 15px;
+}
+
+button {
+  max-width: 70px;
+  max-height: 20px;
+}
+
+.edit-field {
+  padding: 12px;
+}
+
+.header {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin: 5px;
+  color: #f3564a;
+}
+
+h4 {
+  color: #374457;
+}
+
+.grid-container {
+  display: grid;
+  grid-template: 100% / 30% 70%;
+}
+
+.main-station {
+  grid-column: 1/2;
+  background-color: white;
+  text-align: center;
+}
+
+.preview-panel {
+  grid-column: 2/3;
+  background-color: white;
+  border: solid 1px black;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+label {
+  flex: 1;
+  max-width: 120px; /* Set a minimum width for the labels */
+  text-align: right; /* Align the labels to the right */
+  margin-right: 10px; /* Add some spacing between label and input */
+}
