@@ -8,6 +8,7 @@ html {
   margin: 0;
   padding: 0;
   background-color: #374457;
+  box-sizing: border-box;
 }
 
 body {
@@ -74,6 +75,11 @@ h4 {
 .input-container {
   display: flex;
   margin-bottom: 5px;
+}
+
+textarea {
+  flex: 1;
+  max-width: 185px;
 }
 
 label {
