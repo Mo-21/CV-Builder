@@ -52,7 +52,7 @@ function App() {
   };
 
   // -----------Skills State-----------
-  const [currentSkill, setSkill] = useState({ skill: "", id: uuidv4() });
+  const [currentSkill, setSkill] = useState({ skill: "" });
   const [skillsList, setSkillsList] = useState([]);
 
   const handleSkillInput = (event) => {
@@ -60,27 +60,35 @@ function App() {
   };
 
   const handleButtonClick = () => {
-    setSkillsList([...skillsList, currentSkill.skill]);
-    setSkill({ ...currentSkill, skill: "", id: uuidv4() }); // Reset input field after adding
+    const newItem = {
+      id: uuidv4(),
+      value: currentSkill.skill,
+    };
+    setSkillsList([...skillsList, newItem]);
+    setSkill({ ...currentSkill, skill: "" });
   };
 
   const list = skillsList.map((item) => (
-    <li key={currentSkill.id}>
-      {item}{" "}
-      <button onClick={() => handleEditClick(currentSkill.id)}>Edit</button>
+    <li key={item.id}>
+      {item.value}
+      <button onClick={() => handleEditClick(item.id)}>Edit</button>
+      <button onClick={() => handleDeleteClick(item.id)}>Delete</button>
     </li>
   ));
 
-  console.log(currentSkill);
-
-  const handleEditClick = (index) => {
+  const handleEditClick = (id) => {
     const updatedValue = prompt("Enter the new value:");
     if (updatedValue !== null) {
-      const updatedItems = [...skillsList];
-      console.log(updatedItems);
-      updatedItems[index] = updatedValue;
+      const updatedItems = skillsList.map((item) =>
+        item.id === id ? { ...item, value: updatedValue } : item
+      );
       setSkillsList(updatedItems);
     }
+  };
+
+  const handleDeleteClick = (id) => {
+    const updatedItems = skillsList.filter((item) => item.id !== id);
+    setSkillsList(updatedItems);
   };
 
   // ----------Work Experience State------------
@@ -111,16 +119,17 @@ function App() {
   };
 
   const handleButtonClickWork = () => {
-    setWorkList([
-      ...workList,
-      {
+    const newItem = {
+      id: uuidv4(),
+      value: {
         position: currentWorkInfo.position,
         company: currentWorkInfo.company,
         location: currentWorkInfo.location,
         from: currentWorkInfo.from,
         to: currentWorkInfo.to,
       },
-    ]);
+    };
+    setWorkList([...workList, newItem]);
     setCurrentWorkInfo({
       ...workList,
       position: "",
@@ -128,18 +137,24 @@ function App() {
       location: "",
       from: "",
       to: "",
-    }); // Reset input field after adding
+    });
   };
 
   const listOfWork = workList.map((item) => (
-    <>
-      <div>{item.position}</div>
-      <div>{item.company}</div>
-      <div>{item.location}</div>
-      <div>{item.from}</div>
-      <div>{item.to}</div>
-    </>
+    <div key={item.id}>
+      <div>{item.value.position}</div>
+      <div>{item.value.company}</div>
+      <div>{item.value.location}</div>
+      <div>{item.value.from}</div>
+      <div>{item.value.to}</div>
+      <button onClick={() => handleDeleteClickWork(item.id)}>Delete</button>
+    </div>
   ));
+
+  const handleDeleteClickWork = (id) => {
+    const updatedItems = workList.filter((item) => item.id !== id);
+    setWorkList(updatedItems);
+  };
 
   // --------------Education State--------------
   const [currentEduInfo, setCurrentEduInfo] = useState({
@@ -169,16 +184,17 @@ function App() {
   };
 
   const handleButtonClickEdu = () => {
-    setEduList([
-      ...eduList,
-      {
+    const newItem = {
+      id: uuidv4(),
+      value: {
         degree: currentEduInfo.degree,
         institute: currentEduInfo.institute,
         location: currentEduInfo.location,
         from: currentEduInfo.from,
         to: currentEduInfo.to,
       },
-    ]);
+    };
+    setEduList([...eduList, newItem]);
     setCurrentEduInfo({
       ...eduList,
       degree: "",
@@ -186,18 +202,24 @@ function App() {
       location: "",
       from: "",
       to: "",
-    }); // Reset input field after adding
+    });
   };
 
   const listOfEdu = eduList.map((item) => (
-    <>
-      <div>{item.degree}</div>
-      <div>{item.institute}</div>
-      <div>{item.location}</div>
-      <div>{item.from}</div>
-      <div>{item.to}</div>
-    </>
+    <div key={item.id}>
+      <div>{item.value.degree}</div>
+      <div>{item.value.institute}</div>
+      <div>{item.value.location}</div>
+      <div>{item.value.from}</div>
+      <div>{item.value.to}</div>
+      <button onClick={() => handleDeleteClickEdu(item.id)}>Delete</button>
+    </div>
   ));
+
+  const handleDeleteClickEdu = (id) => {
+    const updatedItems = eduList.filter((item) => item.id !== id);
+    setEduList(updatedItems);
+  };
 
   // --------------Languages--------------
   const [currentLanguage, setCurrentLanguage] = useState({
@@ -216,26 +238,33 @@ function App() {
   };
 
   const handleButtonClickLanguage = () => {
-    setLanguageList([
-      ...languageList,
-      {
+    const newItems = {
+      id: uuidv4(),
+      value: {
         language: currentLanguage.language,
         level: currentLanguage.level,
       },
-    ]);
+    };
+    setLanguageList([...languageList, newItems]);
     setCurrentLanguage({
       ...languageList,
       language: "",
       level: "",
-    }); // Reset input field after adding
+    });
   };
 
   const listOfLanguages = languageList.map((item) => (
-    <>
-      <div>{item.language}</div>
-      <div>{item.level}</div>
-    </>
+    <div key={item.id}>
+      <div>{item.value.language}</div>
+      <div>{item.value.level}</div>
+      <button onClick={() => handleDeleteClickLang(item.id)}>Delete</button>
+    </div>
   ));
+
+  const handleDeleteClickLang = (id) => {
+    const updatedItems = eduList.filter((item) => item.id !== id);
+    setLanguageList(updatedItems);
+  };
 
   return (
     <>
