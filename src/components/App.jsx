@@ -1,7 +1,21 @@
 import { useState } from "react";
 import "../styles/App.css";
-import "../styles/Preview-Panel.css";
+import "../styles/PreviewPanel.css";
 import { v4 as uuidv4 } from "uuid";
+import html2pdf from "html2pdf.js";
+
+const handleSaveClick = () => {
+  const element = document.getElementById("preview-panel");
+  const opt = {
+    margin: 10,
+    filename: "custom_cv.pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+  };
+
+  html2pdf(element, opt);
+};
 
 function App() {
   // --------------Personal Info State-------------------
@@ -485,7 +499,7 @@ function App() {
         </div>
 
         {/*                     Preview Screen                     */}
-        <div className="preview-panel">
+        <div id="preview-panel" className="preview-panel">
           <div className="personal-Info-preview preview">
             <div className="name">{currentPersonalInfo.name}</div>
             <div className="profession">{currentPersonalInfo.profession}</div>
@@ -506,6 +520,9 @@ function App() {
           <div className="edu-preview preview">{listOfEdu}</div>
           <div className="lang-preview preview">{listOfLanguages}</div>
         </div>
+        <button onClick={handleSaveClick} className="save-pdf">
+          Save
+        </button>
       </div>
     </>
   );
