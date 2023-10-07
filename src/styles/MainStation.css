@@ -1,0 +1,66 @@
+input,
+textarea {
+  border-color: #374457;
+  border-radius: 5px;
+  flex: 1;
+  max-width: 250px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+label {
+  flex: 1;
+  max-width: 120px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+h4 {
+  color: #374457;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.main-station {
+  border-left: solid #f3564a 1rem;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.btn .add {
+  background-color: #f3564a;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  min-width: 80px;
+  height: 30px;
+  font-size: 1.1rem;
+}
+
+.add-skill {
+  margin-left: 5px;
+}
+
+.btn {
+  text-align: center;
+  margin-right: 20px;
+}
+
+.save-pdf {
+  background-color: #198754;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 12px;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
