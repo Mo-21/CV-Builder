@@ -1,8 +1,39 @@
-# React + Vite
+# CV Builder Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web application for creating and generating professional Curriculum Vitae (CV) using React.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Usage](#usage)
+- [Tools Used](#tools-used)
+- [Contributing](#contributing)
+
+## Features
+
+- Create and edit CV content through a user-friendly interface.
+- Preview CV in real-time as you make changes.
+- Generate a downloadable PDF version of the CV.
+- Customize font styles, colors, and layout to suit your preferences.
+- Add and arrange sections like skills, awards, certifications, and more.
+- Store multiple CV versions for different job applications.
+- Mobile-responsive design for editing on the go.
+- Export and import CV data for easy backup and transfer.
+
+## Usage
+
+1. Fill in your personal details, education, work experience, skills, etc.
+2. Preview the CV to see how it will look.
+3. Make any necessary adjustments.
+4. Click the "Save" button to save your CV as a PDF file.
+
+## Tools Used
+
+- **React**: A JavaScript library for building user interfaces.
+- **HTML/CSS**: Used for structuring and styling the application.
+- **npm**: A package manager for installing and managing dependencies.
+- **html2pdf.js**: A library for converting HTML content to PDF files.
+
+## Contributing
+
+Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
